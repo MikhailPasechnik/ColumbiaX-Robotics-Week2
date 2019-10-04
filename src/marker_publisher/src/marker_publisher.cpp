@@ -54,20 +54,10 @@ int main( int argc, char** argv )
     object.id = 0;
     object.type = visualization_msgs::Marker::CYLINDER;
     object.action = visualization_msgs::Marker::ADD;
-    object.pose.position.x = 0;
-    object.pose.position.y = 0;
-    object.pose.position.z = 0;
-    object.pose.orientation.x = 0.0;
-    object.pose.orientation.y = 0.0;
-    object.pose.orientation.z = 0.0;
-    object.pose.orientation.w = 1.0;
-    object.scale.x = 0.3;
-    object.scale.y = 0.3;
-    object.scale.z = 0.3;
-    object.color.r = 0.0f;
-    object.color.g = 1.0f;
-    object.color.b = 0.0f;
-    object.color.a = 0.3;
+    object.pose.position = create_triple<Point>(0, 0, 0);
+    object.pose.orientation = create_quadruple<Quaternion>(0, 0, 0, 1);
+    object.scale = create_triple<Vector3>(0.3, 0.3, 0.3);
+    object.color = create_color(0.0, 1.0, 0.0, 0.3);
     object.lifetime = ros::Duration();
     marker_pub.publish(object);
 
@@ -80,20 +70,9 @@ int main( int argc, char** argv )
     robot.id = 1;
     robot.type = visualization_msgs::Marker::CUBE;
     robot.action = visualization_msgs::Marker::ADD;
-    robot.pose.position.x = 0;
-    robot.pose.position.y = 0;
-    robot.pose.position.z = 0;
-    robot.pose.orientation.x = 0.0;
-    robot.pose.orientation.y = 0.0;
-    robot.pose.orientation.z = 0.0;
-    robot.pose.orientation.w = 1.0;
-    robot.scale.x = 0.3;
-    robot.scale.y = 0.3;
-    robot.scale.z = 0.3;
-    robot.color.r = 0.0f;
-    robot.color.g = 1.0f;
-    robot.color.b = 0.0f;
-    robot.color.a = 0.3;
+    robot.pose.orientation = create_quadruple<Quaternion>(0, 0, 0, 1);
+    robot.scale = create_triple<Vector3>(0.3, 0.3, 0.3);
+    robot.color = create_color(0.0, 1.0, 0.0, 0.3);
     robot.lifetime = ros::Duration();
     marker_pub.publish(robot);
 
@@ -106,20 +85,10 @@ int main( int argc, char** argv )
     camera.id = 2;
     camera.type = visualization_msgs::Marker::ARROW;
     camera.action = visualization_msgs::Marker::ADD;
-    camera.pose.position.x = 0;
-    camera.pose.position.y = 0;
-    camera.pose.position.z = 0;
-    camera.pose.orientation.x = 0.0;
-    camera.pose.orientation.y = 0.0;
-    camera.pose.orientation.z = 0.0;
-    camera.pose.orientation.w = 1.0;
-    camera.scale.x = 0.1;
-    camera.scale.y = 0.1;
-    camera.scale.z = 0.1;
-    camera.color.r = 0.0f;
-    camera.color.g = 1.0f;
-    camera.color.b = 0.0f;
-    camera.color.a = 0.3;
+
+    camera.pose.orientation = create_quadruple<Quaternion>(0, 0, 0, 1);
+    camera.scale = create_triple<Vector3>(0.4, 0.1, 0.1);
+    camera.color = create_color(1.0, 0.0, 0.0, 0.7);
     camera.lifetime = ros::Duration();
     marker_pub.publish(camera);
 
